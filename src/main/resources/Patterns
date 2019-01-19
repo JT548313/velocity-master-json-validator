@@ -1,0 +1,55 @@
+JSON Pattern of Pipeline Manager
+{
+	"patterns": [{
+			"id": {
+				"name": "java-jboss-openshift-v3",
+				"version": "1.0"
+			},
+			"display": {
+				"name": "JAya",
+				"description": "Java, JBoss, OpenShift V3 pipeline"
+			},
+			"stageModules": [{
+					"stage": "preflight",
+					"moduleIds": [{
+						"id": "openshift-v3-preflight",
+						"version": "1.0"
+					}]
+				},
+				{
+					"stage": "checkout",
+					"moduleIds": [{
+						"id": "openshift-V3-checkout",
+						"version": "1.0"
+					}]
+				},
+				{
+					"stage": "build",
+					"moduleIds": [{
+						"id": "openshift-V3-build",
+						"version": "1.0"
+					}]
+				},
+				{
+					"stage": "analysis",
+					"moduleIds": [{
+							"id": "openshift-V3-codeanalysis",
+							"version": "1.0"
+						},
+						{
+							"id": "openshift-v3-checkmarx",
+							"version": "1.0"
+						}
+					]
+				},
+				{
+					"stage": "imagebuild",
+					"moduleIds": [{
+						"id": "openshift-V3-imagebuild",
+						"version": "1.0"
+					}]
+				}
+			]
+		}
+	}
+
