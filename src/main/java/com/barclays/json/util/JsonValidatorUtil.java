@@ -20,6 +20,8 @@ public class JsonValidatorUtil {
 	    ArrayList<PipelinePattern> patternList = null;
 		try {
 			jp = f.createJsonParser(new File(filePath)); // For reference MasterJsonValidatorConstants.PATTERN_JSON_URL
+			
+			System.out.println(jp.getText());
 			ObjectMapper mapper = new ObjectMapper();
 			PipelinePatterns patterns = mapper.readValue(jp, PipelinePatterns.class);
 			patternList = patterns.getPatterns();
