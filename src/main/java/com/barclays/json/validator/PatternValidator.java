@@ -31,6 +31,10 @@ public class PatternValidator extends JsonValidator {
 		ArrayList<PipelinePattern> patternList = JsonValidatorUtil
 				.readJsonFile(MasterJsonValidatorConstants.PATTERN_JSON_URL);
 
+		// Free text validation
+		// Size limit
+		// Tag filtration eg <script>...</script>
+		// Pattern matching
 		for (PipelinePattern pattern : patternList) {
 			FreeTextValidations.validateFreeText(pattern.getDisplay().getDescription());
 		}
