@@ -14,7 +14,6 @@ import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.JsonMappingException;
-
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.jayway.jsonpath.Configuration;
@@ -46,7 +45,9 @@ public class JsonPathExample {
 
 		Configuration configuration = Configuration.defaultConfiguration();
 		List<String> authorsOfBooksWithISBN = ctx.read("$.patterns[*]..name");
-	
+
+
+		
 		List<String> patterns = JsonPath
 		                            .using(configuration)
 		                            .parse(jsonDataSourceString)

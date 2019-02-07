@@ -13,10 +13,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class JsonValidatorUtil {
 	
-	/**
-	 * @param filePath
-	 * @return
-	 */
 	@SuppressWarnings("deprecation")
 	public static ArrayList<PipelinePattern> readJsonFile(String filePath) {
 		JsonFactory f = new JsonFactory();

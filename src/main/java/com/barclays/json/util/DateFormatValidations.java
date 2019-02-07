@@ -8,7 +8,6 @@ import org.joda.time.IllegalFieldValueException;
 import org.joda.time.format.DateTimeFormatter;
 import org.joda.time.format.ISODateTimeFormat;
 
-import com.barclays.MasterJsonValidatorConstants;
 import com.barclays.json.beans.Message;
 
 public class DateFormatValidations {
@@ -53,7 +52,8 @@ public class DateFormatValidations {
 	private static void validateISO8601DateFomat(String date, final ArrayList<Message> messages) {
 
 		// Match parsed date against ISO 8601 Date time Regex
-		if (!Pattern.matches(MasterJsonValidatorConstants.DATE_FORMAT_ISO8601_REGEX, date)) {
+		if (!Pattern.matches("^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])"
+				+ "T(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])(\\.[0-9]+)?Z$", date)) {
 			Message m = new Message();
 			m.setClassName("DateFormatValidations");
 			m.setErrDesc("Failure!!\nIncorrect date format");
@@ -75,4 +75,14 @@ public class DateFormatValidations {
 
 	}
 
+	public static void main(String[] args) {
+		ArrayList<Message> messages = DateFormatValidations.validateDateFormat("2019-2-19");
+
+		if (messages.size() > 0) {
+			for (Message m : messages)
+				System.out.println(m.getErrDesc());
+		} else {
+			System.out.println("Date Validation Successful!!");
+		}
+	}
 }
